@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title></title> 
+    <link rel="stylesheet" href="styles.css"> 
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            background-image: url('Background.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-areas: 
+                "top-left top-right"
+                "button button"
+                "bottom-left bottom-right"
+                ". bottom-text";
+            gap: 20px;
+            text-align: center;
+            position: relative; 
+        }
+
+        .box {
+            width: 150px;
+            height: 200px;
+            border: 2px solid white;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .box-top-left {
+            grid-area: top-left;
+        }
+
+        .box-bottom-right {
+            grid-area: bottom-right;
+        }
+
+        .text {
+            color: white;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 14px;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .text-top-right {
+            grid-area: top-right;
+        }
+
+        .text-bottom-left {
+            grid-area: bottom-left;
+        }
+
+        .text-bottom {
+            grid-area: bottom-text;
+            position: absolute;
+            bottom: 50px; 
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            padding: 10px; 
+            font-size: 12px; 
+            line-height: 1.4; 
+        }
+
+        .button {
+            grid-area: button;
+            padding: 10px 20px;
+            font-size: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: white;
+            color: black;
+            margin: auto;
+        }
+
+        .center-align {
+            text-align: center;
+            width: 100%;
+            color: white;
+            margin-top: 10px;
+        }
+
+        .bottom-right-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            grid-area: bottom-right;
+            gap: 16px; /* Adjust padding between image and text */
+            position: relative;
+        }
+    </style> 
+</head> 
+<body> 
+    <audio autoplay>
+        <source src="MyGirl.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="container"> 
+        <div class="box box-top-left"> 
+            <img src="MyGirl.jpg" alt="Image 1"> 
+        </div> 
+        <div class="text text-top-right">
+            To the most beautiful woman I've ever known—
+            With a smile that softens time,
+            And lips so delicate, they whisper poetry in silence.
+            A tiny mole, like a secret star, rests gently
+            At the corner of your right brow,
+            Framing your eyes—those deep, divine pools
+            That hold galaxies within.
+            Your cheeks, soft as rose petals kissed by dawn,
+            Tell me you’re no less than a masterpiece—
+            Aadrika, the name of a princess,
+            But truly, a gift the heavens shaped with care and wonder.
+        </div> 
+        <a href="https://api.whatsapp.com/send?phone=918105215353&text=Thank%20u%20kutta" class="button" target="_blank">Reply</a>
+
+        <div class="text text-bottom-left">
+           So Aadrika,
+            I know we’re not the same anymore. We broke up, and life has taken us on different paths.
+            But you were my first love—my first real girlfriend—and honestly, the best one I ever had.
+            Even if we drifted apart for reasons I may never fully understand,
+            One thing never changed: I never stopped caring about you.
+            I still want you to be happy, truly happy.
+            I hope every wish you hold close to your heart comes true.
+            And though I'm just your past now,
+            I still wanted to say this today—from your ex,
+            Happy Girlfriend's Day Princess.
+        </div> 
+        <div class="bottom-right-group">
+            <div class="box box-bottom-right"> 
+                <img src="My-Girl.jpg" alt="Image 2"> 
+                
+            </div> 
+           
+        </div>
+
+        
+</body>
+</html>
