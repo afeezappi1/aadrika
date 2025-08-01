@@ -1,165 +1,405 @@
-<!doctype html>
-<html lang="en"> 
-<head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title></title> 
-    <link rel="stylesheet" href="styles.css"> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Princess</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        * {
             margin: 0;
-            padding: 20px;
-            background-image: url('Background.jpg'); 
-            background-size: cover; 
-            background-position: center; 
-            font-family: Arial, sans-serif;
+            padding: 0;
             box-sizing: border-box;
         }
-
-        .container {
-            display: grid;
-            grid-template-areas: 
-                "top-left top-right"
-                "button button"
-                "bottom-left bottom-right"
-                ". bottom-text";
-            gap: 20px;
-            text-align: center;
-            position: relative; 
-        }
-
-        .box {
-            width: 150px;
-            height: 200px;
-            border: 2px solid white;
-            background-color: black;
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(135deg, #ffcce6, #e6f0ff);
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 20px;
+            color: #5a3d5c;
+            overflow-x: hidden;
+            position: relative;
         }
-
-        .box img {
+        
+        /* Background decorative elements */
+        .heart {
+            position: absolute;
+            color: rgba(255, 105, 180, 0.15);
+            font-size: 2rem;
+            z-index: 0;
+        }
+        
+        .heart:nth-child(1) { top: 10%; left: 5%; animation: float 8s infinite; }
+        .heart:nth-child(2) { top: 20%; right: 7%; animation: float 10s infinite; }
+        .heart:nth-child(3) { bottom: 15%; left: 8%; animation: float 12s infinite; }
+        .heart:nth-child(4) { bottom: 25%; right: 10%; animation: float 9s infinite; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .header {
+            background: linear-gradient(45deg, #ff6b9c, #ff8e6e);
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .photo-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .photo-frame {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            aspect-ratio: 3/4;
+            background: #f8f5fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 10px solid white;
+        }
+        
+        .photo-frame:hover {
+            transform: translateY(-5px);
+        }
+        
+        .photo-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
-
-        .box-top-left {
-            grid-area: top-left;
-        }
-
-        .box-bottom-right {
-            grid-area: bottom-right;
-        }
-
-        .text {
-            color: white;
-            background-color: #333;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            font-size: 14px;
-            line-height: 1.6;
-            text-align: left;
-        }
-
-        .text-top-right {
-            grid-area: top-right;
-        }
-
-        .text-bottom-left {
-            grid-area: bottom-left;
-        }
-
-        .text-bottom {
-            grid-area: bottom-text;
-            position: absolute;
-            bottom: 50px; 
-            left: 0;
-            right: 0;
-            margin: 0 auto;
-            padding: 10px; 
-            font-size: 12px; 
-            line-height: 1.4; 
-        }
-
-        .button {
-            grid-area: button;
-            padding: 10px 20px;
-            font-size: 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            background-color: white;
-            color: black;
-            margin: auto;
-        }
-
-        .center-align {
-            text-align: center;
-            width: 100%;
-            color: white;
-            margin-top: 10px;
-        }
-
-        .bottom-right-group {
+        
+        .message-container {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            grid-area: bottom-right;
-            gap: 16px; /* Adjust padding between image and text */
-            position: relative;
+            gap: 20px;
         }
-    </style> 
-</head> 
-<body> 
-    <audio autoplay>
-        <source src="MyGirl.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    <div class="container"> 
-        <div class="box box-top-left"> 
-            <img src="MyGirl.jpg" alt="Image 1"> 
-        </div> 
-        <div class="text text-top-right">
-            To the most beautiful woman I've ever known—
-            With a smile that softens time,
-            And lips so delicate, they whisper poetry in silence.
-            A tiny mole, like a secret star, rests gently
-            At the corner of your right brow,
-            Framing your eyes—those deep, divine pools
-            That hold galaxies within.
-            Your cheeks, soft as rose petals kissed by dawn,
-            Tell me you’re no less than a masterpiece—
-            Aadrika, the name of a princess,
-            But truly, a gift the heavens shaped with care and wonder.
-        </div> 
-        <a href="https://api.whatsapp.com/send?phone=918105215353&text=Thank%20u%20kutta" class="button" target="_blank">Reply</a>
-
-        <div class="text text-bottom-left">
-           So Aadrika,
-            I know we’re not the same anymore. We broke up, and life has taken us on different paths.
-            But you were my first love—my first real girlfriend—and honestly, the best one I ever had.
-            Even if we drifted apart for reasons I may never fully understand,
-            One thing never changed: I never stopped caring about you.
-            I still want you to be happy, truly happy.
-            I hope every wish you hold close to your heart comes true.
-            And though I'm just your past now,
-            I still wanted to say this today—from your ex,
-            Happy Girlfriend's Day Princess.
-        </div> 
-        <div class="bottom-right-group">
-            <div class="box box-bottom-right"> 
-                <img src="My-Girl.jpg" alt="Image 2"> 
-                
-            </div> 
-           
-        </div>
-
         
+        .message {
+            background: linear-gradient(to bottom right, #fff, #f9f0ff);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 182, 193, 0.3);
+        }
+        
+        .message::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, #ff6b9c, #ff8e6e);
+        }
+        
+        .message h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #ff6b9c;
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .message h2::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 15px;
+            width: 50px;
+            height: 2px;
+            background: #ff8e6e;
+        }
+        
+        .message p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 10px;
+            color: #5a3d5c;
+            padding-left: 15px;
+        }
+        
+        .message .highlight {
+            color: #ff6b9c;
+            font-weight: bold;
+            font-style: italic;
+        }
+        
+        .button-container {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            color: white;
+            font-size: 1.3rem;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(37, 211, 102, 0.4);
+        }
+        
+        .whatsapp-btn i {
+            font-size: 1.8rem;
+        }
+        
+        .music-player {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            width: fit-content;
+            margin: 20px auto 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0d0e3;
+        }
+        
+        .play-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b9c, #ff8e6e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 10px rgba(255, 107, 156, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .play-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .music-info {
+            font-family: 'Raleway', sans-serif;
+        }
+        
+        .music-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: #ff6b9c;
+        }
+        
+        .music-info p {
+            font-size: 0.9rem;
+            color: #8a7a8c;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 25px;
+            background: linear-gradient(45deg, #f8f5fa, #fff);
+            color: #8a7a8c;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 182, 193, 0.3);
+        }
+        
+        .footer .heart-icon {
+            color: #ff6b9c;
+            margin: 0 5px;
+        }
+        
+        /* Animation for the title */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .header h1 {
+            animation: pulse 3s infinite;
+        }
+        
+        /* Floating animation for photos */
+        .photo-frame {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .photo-frame:nth-child(2) {
+            animation-delay: 1s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating hearts in background -->
+    <div class="heart"><i class="fas fa-heart"></i></div>
+    <div class="heart"><i class="fas fa-heart"></i></div>
+    <div class="heart"><i class="fas fa-heart"></i></div>
+    <div class="heart"><i class="fas fa-heart"></i></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>For My Princess</h1>
+            <p>Every moment with you is a cherished memory</p>
+        </div>
+        
+            <div class="content"><div class="photo-container">
+                <div class="photo-frame">
+                    <img src="My-Girl.jpg" alt="Beautiful Memory">
+                </div>
+                <div class="photo-frame">
+                    <img src="MyGirl.jpg" alt="Special Moment">
+                 </div>
+            </div>
+            
+            <div class="message-container">
+                <div class="message">
+                    <h2>To  Beautiful Princess</h2>
+                    <p>To the most beautiful woman I've ever known—</p>
+                    <p>With a smile that softens time, and lips so delicate, they whisper poetry in silence.</p>
+                    <p>A tiny mole, like a secret star, rests gently at the corner of your right brow, framing your eyes—those deep, divine pools that hold galaxies within.</p>
+                    <p>Your cheeks, soft as rose petals kissed by dawn, tell me you're no less than a masterpiece—Aadrika, the name of a princess, but truly, a gift the heavens shaped with care and wonder.</p>
+                </div>
+                
+                <div class="message">
+                    <h2>Always in My Heart</h2>
+                    <p>So Aadrika, I know we're not the same anymore. We broke up, and life has taken us on different paths.</p>
+                    <p>But you were my first love—my first real girlfriend—and honestly, the best one I ever had.</p>
+                    <p>Even if we drifted apart for reasons I may never fully understand, one thing never changed: <span class="highlight">I never stopped caring about you.</span></p>
+                    <p>I still want you to be happy, truly happy. I hope every wish you hold close to your heart comes true.</p>
+                    <p>And though I'm just your past now, I still wanted to say this today—from your ex,</p>
+                    <p><span class="highlight">Happy Girlfriend's Day Princess.</span></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="button-container">
+            <a href="https://api.whatsapp.com/send?phone=918105215353" class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> Reply on WhatsApp
+            </a>
+        </div>
+        
+        <div class="music-player">
+            <div class="play-btn" id="playButton">
+                <i class="fas fa-play"></i>
+            </div>
+            <div class="music-info">
+                <h3>Our Song</h3>
+                <p>My Girl - The Temptations</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Created with <i class="fas fa-heart heart-icon"></i> for Aadrika</p>
+            <p>You will always be my princess. Forever in my heart.</p>
+        </div>
+    </div>
+    
+        <audio id="bgMusic">
+            <source src="MyGirl.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const playButton = document.getElementById('playButton');
+            const bgMusic = document.getElementById('bgMusic');
+            const playIcon = playButton.querySelector('i');
+            
+            let isPlaying = false;
+            
+            playButton.addEventListener('click', function() {
+                if (isPlaying) {
+                    bgMusic.pause();
+                    playIcon.classList.remove('fa-pause');
+                    playIcon.classList.add('fa-play');
+                } else {
+                    bgMusic.play()
+                        .then(() => {
+                            playIcon.classList.remove('fa-play');
+                            playIcon.classList.add('fa-pause');
+                            isPlaying = true;
+                        })
+                        .catch(error => {
+                            alert('Please interact with the page to play music. Tap anywhere first.');
+                        });
+                }
+                isPlaying = !isPlaying;
+            });
+            
+            // Enable music playback after any user interaction
+            document.body.addEventListener('click', function initAudio() {
+                // This just enables future playback
+                document.body.removeEventListener('click', initAudio);
+            });
+        });
+    </script>
 </body>
 </html>
